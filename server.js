@@ -10,6 +10,8 @@ app.use(cors());
 
 const routes = require("./routes");
 app.use("/api", routes);
+app.set('etag', false);
+
 
 (async ()=>{
     await dbConfig.connect();

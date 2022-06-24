@@ -11,8 +11,15 @@ async function connect(){
 }
 
 async function runQuery(query){
-    const result = await client.query(query);
-    return result.rows;
+    try{
+        const result = await client.query(query);
+        return result.rows;
+    } catch(e){
+        console.error(e);
+        console.error(e.stack);
+    } finally {
+        return []
+    }
 }
 
 async function close(){
